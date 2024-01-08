@@ -3,11 +3,11 @@
 import { InvoicesTable } from "./definitions";
 
 // https://nextjs.org/learn/dashboard-app/fetching-data
-const users = [
+export const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'User',
-    email: 'user@nextmail.com',
+    email: 'exapmle@test.com',
     password: '123456',
   },
 ];
