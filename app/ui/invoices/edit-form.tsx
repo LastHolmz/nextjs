@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { updateInvoice } from '@/app/lib/actions';
-import { Button } from '@/components/ui/button';
+import { Button } from '../button';
 import { toast } from 'sonner';
 export default function EditInvoiceForm({
   invoice,
@@ -121,7 +121,6 @@ export default function EditInvoiceForm({
         {/* <Butto type="submit">Edit Invoice</Button> */}
         <Button
         type={"submit"}
-          variant="outline"
           onClick={() =>
             toast('Invoice has been edited', {
               description: 'Sunday, December 03, 2023 at 9:00 AM',
