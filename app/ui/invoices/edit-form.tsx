@@ -8,8 +8,10 @@ import {
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { Button } from '@/app/ui/button';
+import { Button as ProjectButton } from '@/app/ui/button';
 import { updateInvoice } from '@/app/lib/actions';
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 export default function EditInvoiceForm({
   invoice,
   customers,
@@ -117,7 +119,22 @@ export default function EditInvoiceForm({
         >
           Cancel
         </Link>
-        <Button type="submit">Edit Invoice</Button>
+        {/* <Butto type="submit">Edit Invoice</Button> */}
+        <Button
+        type={"submit"}
+          variant="outline"
+          onClick={() =>
+            toast('Invoice has been edited', {
+              description: 'Sunday, December 03, 2023 at 9:00 AM',
+              action: {
+                label: 'Undo',
+                onClick: () => console.log('Undo'),
+              },
+            })
+          }
+        >
+          Edit Invoice
+        </Button>
       </div>
     </form>
   );

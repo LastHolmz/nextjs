@@ -1,7 +1,8 @@
 'use server';
+
 import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
- import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string(),
@@ -20,8 +21,8 @@ export async function createInvoice(formData: FormData) {
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
 
-//   console.log(customerId, amount, status);
-  
+  //   console.log(customerId, amount, status);
+
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
@@ -40,7 +41,12 @@ export async function updateInvoice(id: string, formData: FormData) {
   //   SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
   //   WHERE id = ${id}
   // `;
-  console.log('updated successfully')
+  console.log('updated successfully');
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
+}
+
+export async function deleteInvoice(id: string) {
+  console.log(`element was deteleted ${id}`);
+  revalidatePath('/dashboard/invoices');
 }
